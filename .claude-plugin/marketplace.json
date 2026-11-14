@@ -1,0 +1,17 @@
+{
+  "name": "nightcap",
+  "owner": {
+    "name": "Apple Scoop",
+    "url": "https://applescoop.org/nightcap"
+  },
+  "plugins": [
+    {
+      "name": "nightcap",
+      "source": "./plugin",
+      "description": "Learns how you prompt, scores how well it knows you, then takes your turns while you sleep."
+    }
+  ],
+  "metadata": {
+    "description": "Nightcap: your AI understudy. Learns how you prompt, then works the night shift as you."
+  }
+}

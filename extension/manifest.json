@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Nightcap: your AI understudy",
+  "short_name": "Nightcap",
+  "version": "0.2.0",
+  "description": "A little moon that sits on your AI chat box, learns how you prompt, and suggests your next message. Private: it never leaves your browser.",
+  "homepage_url": "https://applescoop.org/nightcap",
+  "icons": {
+    "16": "icons/glyph-16.png",
+    "32": "icons/glyph-32.png",
+    "48": "icons/tile-48.png",
+    "128": "icons/tile-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Nightcap",
+    "default_icon": {
+      "16": "icons/glyph-16.png",
+      "32": "icons/glyph-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "sw.js",
+    "type": "module"
+  },
+  "options_page": "import.html",
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://www.perplexity.ai/*",
+    "https://grok.com/*",
+    "https://chat.deepseek.com/*",
+    "https://copilot.microsoft.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://www.perplexity.ai/*",
+        "https://grok.com/*",
+        "https://chat.deepseek.com/*",
+        "https://copilot.microsoft.com/*"
+      ],
+      "js": [
+        "lib/nightcap-classic.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

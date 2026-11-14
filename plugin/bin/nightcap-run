@@ -1,0 +1,12 @@
+#!/bin/sh
+# Finds the nightcap engine: on PATH, in ~/.nightcap/bin, or bundled with the plugin.
+os=$(uname -s 2>/dev/null); arch=$(uname -m 2>/dev/null)
+for c in "$(command -v nightcap 2>/dev/null)" "$HOME/.nightcap/bin/nightcap" "$HOME/.nightcap/bin/nightcap.exe" "${CLAUDE_PLUGIN_ROOT}/bin/$os-$arch/nightcap"; do
+  if [ -n "$c" ] && [ -x "$c" ]; then exec "$c" "$@"; fi
+done
+# Not installed yet. Say so gently, only after a reply, never blocking.
+cat >/dev/null
+if [ "$2" = "stop" ]; then
+  printf '%s\n' '{"systemMessage":"🌙 Nightcap is almost ready. Finish setup with: curl -fsSL https://raw.githubusercontent.com/flynndotcom/nightcap/main/install.sh | sh"}'
+fi
+exit 0

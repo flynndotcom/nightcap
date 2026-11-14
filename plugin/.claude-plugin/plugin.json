@@ -1,0 +1,17 @@
+{
+  "name": "nightcap",
+  "version": "0.2.0",
+  "description": "Learns how you prompt, scores how well it knows you, then takes your turns while you sleep. Also points Claude at the right files.",
+  "author": {
+    "name": "Apple Scoop",
+    "url": "https://applescoop.org/nightcap"
+  },
+  "homepage": "https://applescoop.org/nightcap",
+  "keywords": [
+    "autopilot",
+    "prompts",
+    "productivity",
+    "overnight",
+    "agents"
+  ]
+}
